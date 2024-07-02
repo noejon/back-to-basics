@@ -1,0 +1,187 @@
+:root {
+  /* Background and foreground colours */
+  --background-color: #193549;
+  --foreground-color: #16213e;
+  --matching-background-gradient-start: #6fa3ef;
+
+  /* Text colours */
+  --text-color: #f5f5f5;
+  --: #193549;
+  --heading-color: #ffffff;
+
+  /* Border colours */
+  --border-color: #2e4a62;
+
+  /* State colours */
+  --disabled-color: #7f8c8d;
+
+  /* Spacing */
+  --spacing-none: 0rem;
+  --spacing-smallest: 0.0625rem;
+  --spacing-small: 0.125rem;
+  --spacing-medium: 0.25rem;
+  --spacing-large: 0.5rem;
+  --spacing-xlarge: 1rem;
+  --spacing-xxlarge: 2rem;
+  --spacing-xxxlarge: 4rem;
+
+  /* border-radius */
+  --border-radius-small: 0.1875rem;
+  --border-radius-medium: 0.35rem;
+  --border-radius-large: 0.5rem;
+  --border-radius-xlarge: 1rem;
+  --border-radius-circle: 50%;
+  --border-radius-pill: 9999px;
+
+  /* Box shadow */
+  --box-shadow-foreground: 0 var(--spacing-medium) var(--spacing-large) var(--spacing-medium) rgba(0, 0, 0, 0.2), 0 var(--spacing-small) var(--spacing-medium) var(--spacing-small) rgba(0, 0, 0, 0.2)
+}
+
+html {
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+  ;
+}
+
+body {
+  background: linear-gradient(180deg, var(--matching-background-gradient-start), #1a1a2e);
+  margin: 0;
+  padding: 0;
+
+}
+
+.page-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-header {
+  display: flex;
+  color: var(--heading-color);
+  width: 100%;
+  justify-content: center;
+  padding: var(--spacing-xlarge);
+}
+
+.page-main {
+  flex-grow: 1;
+  width: 60%;
+  padding: var(--spacing-xlarge);
+}
+
+.page-footer {
+  display: flex;
+  margin-top: auto;
+  padding: var(--spacing-xlarge);
+  color: var(--heading-color);
+}
+
+h1,
+h2,
+he,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  padding-top: var(--spacing-xxlarge);
+  overflow: scroll;
+}
+
+.todo-list-container {
+  background: var(--background-color);
+
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: var(--border-radius-xlarge);
+  background: var(--foreground-color);
+  padding: var(--spacing-xxxlarge);
+  box-shadow: var(--box-shadow-foreground);
+}
+
+.input-with-button {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.input-field {
+  width: 100%;
+  border: 0px solid black;
+  border-radius: var(--border-radius-medium);
+  padding: 1.25rem;
+}
+
+.button {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  border: 1px solid var(--background-color);
+  font-size: var(--spacing-xlarge);
+  padding: var(--spacing-large) var(--spacing-xlarge);
+  border-radius: var(--border-radius-pill);
+}
+
+.button[disabled] {
+  background-color: var(--disabled-color);
+  border: 1px solid var(--text-color);
+}
+
+.input-button-position {
+  position: absolute;
+  right: var(--spacing-medium);
+}
+
+input[type="text"]::placeholder {
+  font-size: 16px;
+  color: var(--border-color);
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.editable-task {
+  flex-grow: 1;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--background-color);
+  background-color: var(--text-color);
+  border-radius: var(--border-radius-medium);
+  padding: var(--spacing-xlarge) var(--spacing-medium);
+  gap: var(--spacing-medium);
+}
+
+
+.completed {
+  color: var(--background-color);
+  background-color: var(--disabled-color);
+}
+
+/* content editable divs have a not so desirable border
+* This is how to remove it, by targeting the attribute
+*/
+[contentEditable] {
+  outline: 0px solid transparent;
+}

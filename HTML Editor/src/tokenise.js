@@ -13,7 +13,8 @@ export const TOKEN_TYPES = {
   TEXT: 'text',
   START_TAG: 'start-tag',
   END_TAG: 'end-tag',
-  SELF_ENDING_TAG: 'self-ending-tag'
+  SELF_ENDING_TAG: 'self-ending-tag',
+  VOID_ELEMENT_TAG: 'void-element-tag'
 }
 
 const BOOLEAN_ATTRIBUTE = 'parser-boolean-attribute';
@@ -28,6 +29,9 @@ const ERRORS = {
   MISSING_ATTRIBUTE_VALUE_OPEN: 'Attribute value has no open single or double quote',
   UNEXPECTED_CHARACTER_IN_CLOSE_TAG: 'The close tag function expects ">" only. No other character allowed'
 }
+
+// https://developer.mozilla.org/en-US/docs/Glossary/Void_element
+const VOID_ELEMENT_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr']);
 
 function tokenise(html) {
   const tokens = [];
@@ -90,6 +94,7 @@ function tokenise(html) {
   }
 
   function whitespaceState(character) {
+    console.log(currentToken, 'in whitespace')
     if (GRAMMAR.WHITESPACE_REGEX.test(character)) {
       return whitespaceState;
     }
@@ -97,9 +102,7 @@ function tokenise(html) {
       return selfClosingTagState(character);
     }
     if (character === GRAMMAR.CLOSE_TAG) {
-      addToken(currentToken);
-      currentToken = null;
-      return outsideTagState;
+      return closeTagState(character);
     }
     currentAttribute = { name: '', value: '' };
     return attributeNameState(character);
@@ -176,6 +179,11 @@ function tokenise(html) {
   function closeTagState(character) {
     if (character !== GRAMMAR.CLOSE_TAG) {
       throw new Error(ERRORS.UNEXPECTED_CHARACTER_IN_CLOSE_TAG);
+    }
+    console.log(currentToken)
+    VOID_ELEMENT_TAGS.has(currentToken.tagName) && console.log(VOID_ELEMENT_TAGS.has(currentToken.tagName), currentToken.htmlTokenType)
+    if (VOID_ELEMENT_TAGS.has(currentToken.tagName) && currentToken.htmlTokenType !== TOKEN_TYPES.SELF_ENDING_TAG) {
+      currentToken.htmlTokenType = TOKEN_TYPES.VOID_ELEMENT_TAG;
     }
     addToken(currentToken);
     currentToken = null;

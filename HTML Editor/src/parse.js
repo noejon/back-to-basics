@@ -45,6 +45,10 @@ const parseTokens = function (tokens) {
         const newSelfClosingNode = new HtmlNode({ type, tagName, attributes });
         currentParent.children.push(newSelfClosingNode)
         break;
+      case TOKEN_TYPES.VOID_ELEMENT_TAG:
+        const newVoidElementNode = new HtmlNode({ type, tagName, attributes });
+        currentParent.children.push(newVoidElementNode)
+        break;
       case TOKEN_TYPES.TEXT:
         const newTextNode = new HtmlNode({ type, text });
         currentParent.children.push(newTextNode);

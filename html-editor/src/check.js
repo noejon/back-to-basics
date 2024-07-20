@@ -34,13 +34,13 @@ const checkHtml = function (node) {
     return [];
   }
   const checker = checkers[node.tagName];
-  let a11yErrors = [];
+  const a11yErrors = [];
   if (checker) {
-    a11yErrors = [...checker(node)]
+    a11yErrors.push(...checker(node));
   }
 
   for (let i = 0; i < node.children.length; i++) {
-    a11yErrors = [...a11yErrors, ...checkHtml(node.children[i])];
+    a11yErrors.push(...checkHtml(node.children[i]));
   }
 
   return a11yErrors;

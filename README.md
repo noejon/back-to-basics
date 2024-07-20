@@ -12,6 +12,10 @@ I have been working with react for a long time and have not really kept up with 
 
 Because whenever you want to learn a new language the first thing you start with is a TODO List
 
+### HTML Editor + Renderer
+
+In browser text editor that renders HTML.
+
 ### Calculator
 
 ### Quizz App

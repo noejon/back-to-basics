@@ -20,6 +20,8 @@ function setTime(hourHand, minuteHand, secondHand) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const hourHand = document.querySelector('.hour-hand');
+  const now = new Date();
+  hourHand.style.setProperty('--hour', now.getHours() * 30 + now.getMinutes() * 0.5 + DEGREES_OFFSET_START_AT_TWELVE + 'deg');
   const minuteHand = document.querySelector('.minute-hand');
   const secondHand = document.querySelector('.second-hand');
 

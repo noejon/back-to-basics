@@ -56,6 +56,13 @@ body {
   min-height: 1rem;
 }
 
+.clock-button {
+  background-color: #0a0a0a;
+  min-width: 1rem;
+  min-height: 1rem;
+  border-radius: 50%;
+}
+
 .hour {
   padding: 0.5rem;
   color: #f5f5f5;
@@ -112,12 +119,4 @@ body {
   transform: rotate(var(--second));
   transform-origin: top;
   border-radius: 50%;
-}
-
-.clock-button {
-  background-color: #0a0a0a;
-  min-width: 1rem;
-  min-height: 1rem;
-  border-radius: 50%;
-  z-index: 99;
 }

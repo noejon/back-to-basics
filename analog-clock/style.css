@@ -49,13 +49,11 @@ body {
   border-radius: 50%;
 }
 
-.clock-button {
+.clock-center {
   display: flex;
   justify-content: center;
   min-width: 1rem;
   min-height: 1rem;
-  background: #f5f5f5;
-  border-radius: 50%;
 }
 
 .hour {
@@ -89,23 +87,37 @@ body {
 }
 
 .hour-hand {
+  top: 0.5rem;
   height: calc(var(--clock-dimension) * .25);
   width: 1rem;
   transform: rotate(var(--hour));
   transform-origin: top;
+  border-radius: 40%;
 }
 
 .minute-hand {
+  top: 0.5rem;
   height: calc(var(--clock-dimension) * .40);
   width: 1rem;
   transform: rotate(var(--minute));
   transform-origin: top;
+  border-radius: 45%;
 }
 
 .second-hand {
+  top: 0.5rem;
   height: calc(var(--clock-dimension) * .40);
   width: .5rem;
   background-color: #6f00ff;
   transform: rotate(var(--second));
   transform-origin: top;
+  border-radius: 50%;
+}
+
+.clock-button {
+  background-color: #0a0a0a;
+  min-width: 1rem;
+  min-height: 1rem;
+  border-radius: 50%;
+  z-index: 99;
 }

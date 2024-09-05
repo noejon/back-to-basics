@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokedex</title>
+  <link rel="stylesheet" href="../normalise.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./monsters.js" defer />
+  </script>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <header>
+      <h1>Monsterdex</h1>
+    </header>
+    <main class="main-wrapper">
+      <form id="addMonster">
+        <input type="text" placeholder="name" name="name">
+        <input type="number" placeholder="height" name="height">
+        <input type="number" placeholder="weight" name="weight">
+        <button type="submit">Add</button>
+      </form>
+      <ul id="monsterList">
+      </ul>
+    </main>
+    <footer>Made with 🥨 by Jon</footer>
+  </div>
+</body>
+
+</html>

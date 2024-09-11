@@ -1,0 +1,109 @@
+:root {
+  --max-width: min(80vw, 30rem, 65ch);
+}
+
+@media (prefers-color-scheme: dark) {}
+
+html {
+  background: var(--background-color);
+  color: var(--text-color);
+}
+
+body {
+  width: 100vw;
+  height: 100svh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--text-color-muted);
+}
+
+code {
+  font-family:
+    Menlo,
+    Monaco,
+    Lucida Console,
+    Liberation Mono,
+    DejaVu Sans Mono,
+    Bitstream Vera Sans Mono,
+    Courier New,
+    monospace;
+}
+
+p {
+  max-width: var(--max-width);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.flex {
+  display: flexbox;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.main-wrapper {
+  flex: 1;
+}
+
+.flag {
+  max-width: 20vw;
+}
+
+.card {
+  border-radius: 50px;
+  background: #f8f8f8;
+  box-shadow: 20px 20px 60px #d3d3d3,
+    -20px -20px 60px #ffffff;
+}
